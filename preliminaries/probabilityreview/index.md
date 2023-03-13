@@ -51,7 +51,7 @@ In other words, $$P(A \mid B)$$ is the probability measure of the event $$A$$ af
 
 ## 1.3 Chain Rule
 
-Let $$A_1, \dotsc, A_k$$ be events, $$P(A_i) >0$$. Then the chain rule states that:
+Let $$A_1, \dotsc, A_k$$ be events, $$P(A_i) >0$$, and $$\bigcap_{i = 1}^k A_i \neq \emptyset$$. Then the chain rule states that:
 
 $$
 \begin{align*}
@@ -88,7 +88,7 @@ More formally, define a mapping $$X : \Omega \to E$$ between two measurable spac
 
 **Example**: In our experiment above, suppose that $$X(\omega)$$ is the number of heads which occur in the sequence of tosses $$\omega$$. Given that only 10 coins are tossed, $$X(\omega)$$ can take only a finite number of values (0 through 10), so it is known as a discrete random variable. Here, the probability of the set associated with a random variable $$X$$ taking on some specific value $$k$$ is $$P(X = k) := P(\{\omega : X(\omega) = k\}) = P(\omega \in \text{all sequences with k heads})$$. Note that the set of all sequences with $$k$$ heads is an element of $$\mathcal{F}$$, given that $$\mathcal{F}$$ consists of all subsets of $$\Omega$$.
 
-**Example**: Suppose that $$X(\omega)$$ is a random variable indicating the amount of time it takes for a radioactive particle to decay ($$\omega$$ for this example could be some underlying characterization of the particle that changes as it decays). In this case, $$X(\omega)$$ takes on a infinite number of possible values, so it is called a continuous random variable. We denote the probability that $$X$$ takes on a value between two real constants $$a$$ and $$b$$ (where $$a < b$$) as $$P(a \leq X \leq b) := P(\{\omega : a \leq X(\omega) \leq b\})$$.
+**Example**: Suppose that $$X(\omega)$$ is a random variable indicating the amount of time it takes for a radioactive particle to decay. In this case, $$X$$ takes on an infinite number of possible values, so it is called a continuous random variable. We denote the probability that $$X$$ takes on a value between two real constants $$a$$ and $$b$$ (where $$a < b$$) as $$P(a \leq X \leq b) := P(\{\omega : a \leq X(\omega) \leq b\})$$.
 
 When describing the event that a random variable takes on a certain value, we often use the **indicator function** $$\mathbf{1}\{A\}$$ which takes value 1 when event $$A$$ happens and 0 otherwise. For example, for a random variable $$X$$,
 
@@ -101,11 +101,11 @@ $$
 
 
 
-In order to specify the probability measures used when dealing with random variables, it is often convenient to specify alternative functions from which the probability measure governing an experiment immediately follows. In the following three sections, we describe these functions: the cumulative distribution function (CDF), the probability mass function (PMF) for discrete random variables, and the probability density function (PDF) for continuous random variables. For the rest of this section, we suppose that $$X$$ takes on real values, i.e., $$E = \mathbb{R}$$. 
+In order to specify the probability measures used when dealing with random variables, it is often convenient to specify alternative functions from which the probability measure governing an experiment immediately follows. In the following three sections, we describe these functions: the cumulative distribution function (CDF), the probability mass function (PMF) for discrete random variables, and the probability density function (PDF) for continuous random variables. For the rest of this section, we suppose that $$X$$ takes on scalar values, i.e., $$E \subseteq \mathbb{R}$$. 
 
 ## 2.1 Cumulative distribution functions
 
-A **cumulative distribution function** (CDF) is a function $$F_X : \mathbb{R} \to [0, 1]$$ which specifies a probability measure as
+A **cumulative distribution function** (CDF) is a function $$F_X : E \to [0, 1]$$ which specifies a probability measure as
 
 $$ F_X(x) = P(X \leq x). $$
 
@@ -335,11 +335,7 @@ $$ p_{Y \mid X} (y \mid x) = \frac{p_{XY}(x, y)}{p_X(x)}, $$
 
 assuming that $$p_X(x) \neq 0$$.
 
-In the continuous case, the situation is technically a little more complicated because the probability that a continuous random variable $$X$$ takes on a specific value $$x$$ is equal to zero. Ignoring this technical point, we simply define, by analogy to the discrete case, the *conditional probability density* of $$Y$$ given $$X = x$$ to be
-
-$$ f_{Y \mid X}(y \mid x) = \frac{f_{XY} (x, y)}{f_X(x)} $$,
-
-provided $$f_X(x) \neq 0$$.
+In the continuous case, the situation is technically a little more complicated because the probability that a continuous random variable $$X$$ takes on a specific value $$x$$ is equal to zero. Ignoring this technical point, we simply define, by analogy to the discrete case, the *conditional probability density* of $$Y$$ given $$X = x$$ to be $$ f_{Y \mid X}(y \mid x) = \frac{f_{XY} (x, y)}{f_X(x)} $$, provided $$f_X(x) \neq 0$$.
 
 ## 3.5 Chain rule
 
